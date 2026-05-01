@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="stylesheet.css">
+
+</head>
+<body>
+    <section>
+        <div class="main">
+            <div class="left">
+                <h3>Candy: <br/><span class="candies">500</span><br/> CPS:<span class = "candypersecond">0</span></h3>
+                <img src="assets/Candy.png" alt = "" class="candyButton" draggable="false" width="500vh" height="500vh" onclick="incrementCandy()">
+
+            </div>
+
+            <div class="right">
+                <div class="upgrade" onclick="buyClicker()">
+                    <div class="left2">
+                        <img src="assets/cursor.png" alt="" class="upgradeImg">
+                    </div>
+                    <div class="middle2">
+                        <h4>Clicker</h4>
+                        <h4>*<span class="clickerIncrease">1</span> candy/click</h4>
+                        <div class="costInfo"></div>
+                        <div>
+                            <p>
+                                cost: <span class="clickerCost">20</span>
+                                <img src="assets/Candy.png" alt="" class="currency">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right2">
+                        level <span class ="clickerLevel">0</span>
+
+                    </div>
+                </div>
+                <div class="upgrade" onclick="buyCandyTree()">
+                    <div class="left2">
+                        <img src="assets/tree.png" alt="" class="upgradeImg">
+                    </div>
+                    <div class="middle2">
+                        <h4>CandyTree</h4>
+                        <h4>*<span class="CandyTreeIncrease">1</span> candy/s</h4>
+                        <div class="costInfo"></div>
+                        <div>
+                            <p>
+                                cost: <span class="CandyTreeCost">100</span>
+                                <img src="assets/Candy.png" alt="" class="currency">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="right2">
+                        level <span class ="CandyTreeLevel">0</span>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+    <audio id="candyClickAudio">
+        <source src="assets/candyClick.ogg" type="audio/ogg">
+    </audio>
+    <audio id="buyUpgradeAudio">
+        <source src="assets/BuyUpgrade.ogg" type="audio/ogg">
+    </audio>
+    <script src = "index.js"></script>
+</body>
+</html>

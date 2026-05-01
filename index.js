@@ -1,0 +1,65 @@
+let candy = document.querySelector(".candies")
+let clickerCost = document.querySelector(".clickerCost")
+let clickerLevel = document.querySelector(".clickerLevel")
+let clickerIncrease = document.querySelector(".clickerIncrease")
+let parsedClickerCost = parseFloat(clickerCost.innerHTML)
+let candyAmount = parseFloat(candy.innerHTML)
+let parsedClickerIncrease = parseFloat(clickerIncrease.innerHTML)
+let candyPerClick = 1
+let candyPerSecond = 0
+
+let CandyTreeCost = document.querySelector(".CandyTreeCost")
+let CandyTreeLevel = document.querySelector(".CandyTreeLevel")
+let CandyTreeIncrease = document.querySelector(".CandyTreeIncrease")
+let parsedCandyTreeCost = parseFloat(CandyTreeCost.innerHTML)
+let parsedCandyTreeIncrease = parseFloat(CandyTreeIncrease.innerHTML)
+let candyClickAudio = document.getElementById("candyClickAudio")
+let buyUpgradeAudio = document.getElementById("buyUpgradeAudio")
+
+function incrementCandy(){
+    candyAmount += candyPerClick
+    candy.innerHTML = (candyAmount).toFixed(2)
+    candyClickAudio.play()
+}
+
+function buyClicker() {
+    let cost = parseFloat(clickerCost.innerHTML);
+
+    if (candyAmount >= cost) {
+        candyAmount -= cost
+        candy.innerHTML = (candyAmount).toFixed(2)
+
+        clickerLevel.innerHTML++
+
+        parsedClickerIncrease = parseFloat((parsedClickerIncrease * 1.03).toFixed(2))
+        clickerIncrease.innerHTML = parsedClickerIncrease
+
+        candyPerClick += parsedClickerIncrease
+        parsedClickerCost *= 1.2
+        clickerCost.innerHTML = (parsedClickerCost).toFixed(2)
+        buyUpgradeAudio.play()
+    }
+}
+function buyCandyTree() {
+    let cost = parseFloat(CandyTreeCost.innerHTML);
+
+    if (candyAmount >= cost) {
+        candyAmount -= cost
+        candy.innerHTML = (candyAmount).toFixed(2)
+
+        CandyTreeLevel.innerHTML++
+
+        parsedCandyTreeIncrease = parseFloat((parsedCandyTreeIncrease * 1.03).toFixed(2))
+        CandyTreeIncrease.innerHTML = parsedCandyTreeIncrease
+
+        candyPerSecond += parsedCandyTreeIncrease
+        parsedCandyTreeCost *= 1.2
+        CandyTreeCost.innerHTML = (parsedCandyTreeCost).toFixed(2)
+        buyUpgradeAudio.play()
+    }
+}
+setInterval(() => {
+    candyAmount += candyPerSecond /4
+    candy.innerHTML = (candyAmount).toFixed(2)
+    document.title = (candyAmount).toFixed(0) + " Candy Clicker"
+}, 250)
