@@ -15,6 +15,9 @@ let parsedCandyTreeCost = parseFloat(CandyTreeCost.innerHTML)
 let parsedCandyTreeIncrease = parseFloat(CandyTreeIncrease.innerHTML)
 let candyClickAudio = document.getElementById("candyClickAudio")
 let buyUpgradeAudio = document.getElementById("buyUpgradeAudio")
+let upgradeContainer = document.getElementById("upgradeContainer")
+let upgrades = document.getElementById("upgrades")
+let closeUpgradesButton = document.getElementById("closeUpgrades")
 
 function incrementCandy(){
     candyAmount += candyPerClick
@@ -63,3 +66,10 @@ setInterval(() => {
     candy.innerHTML = (candyAmount).toFixed(2)
     document.title = (candyAmount).toFixed(0) + " Candy Clicker"
 }, 250)
+
+function showUpgrades() {
+    upgradeContainer.classList.add("showUpgrades");
+}
+function hideUpgrades() {
+    upgradeContainer.classList.remove("showUpgrades")
+}
