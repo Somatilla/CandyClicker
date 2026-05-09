@@ -18,6 +18,7 @@ let buyUpgradeAudio = document.getElementById("buyUpgradeAudio")
 let upgradeContainer = document.getElementById("upgradeContainer")
 let upgrades = document.getElementById("upgrades")
 let closeUpgradesButton = document.getElementById("closeUpgrades")
+let clickerEfficiency = 1
 
 function incrementCandy(){
     candyAmount += candyPerClick

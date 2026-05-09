@@ -96,6 +96,7 @@ img {
     border-radius: 10vh;
     border-color: #2a2a2a;
     margin: 5vh;
+    position: relative;
 }
 
 .upgradeContainer.showUpgrades {
@@ -103,8 +104,35 @@ img {
     pointer-events: auto;
 }
 
-.upgradeButton {
+.upgradesButton {
     border-color: #2c2c2c;
     background-color: #2e2e2e;
+    color: white;
     font-family: "Quicksand", sans-serif;
+    height: 60px;
+    width: 375px;
+    border: 4px solid white;
+    border-radius: 10px;
+}
+.upgradeButton {
+    font-family: "Quicksand", sans-serif;
+    padding-top: 20px;
+}
+.closeUpgrades {
+    border-color: #2c2c2c;
+    background-color: #2e2e2e;
+    color: white;
+    font-family: "Quicksand", sans-serif;
+    height: 50px;
+    width: 50px;
+    border: 4px solid white;
+    border-radius: 5px;
+    margin-top: 17px;
+    margin-left: 60vh;
+    position: absolute;
+}
+.upgradeGrid {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
