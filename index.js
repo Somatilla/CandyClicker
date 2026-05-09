@@ -21,7 +21,7 @@ let closeUpgradesButton = document.getElementById("closeUpgrades")
 let clickerEfficiency = 1
 
 function incrementCandy(){
-    candyAmount += candyPerClick
+    candyAmount += candyPerClick * clickerEfficiency
     candy.innerHTML = (candyAmount).toFixed(2)
     candyClickAudio.play()
 }
@@ -59,6 +59,18 @@ function buyCandyTree() {
         candyPerSecond += parsedCandyTreeIncrease
         parsedCandyTreeCost *= 1.2
         CandyTreeCost.innerHTML = (parsedCandyTreeCost).toFixed(2)
+        buyUpgradeAudio.play()
+    }
+}
+function buyHardworkingMouse() {
+    let cost = 500 // replace later
+
+    if (candyAmount >= cost) {
+        candyAmount -= cost
+        candy.innerHTML = (candyAmount).toFixed(2)
+
+        let clickerEfficiency = 2
+
         buyUpgradeAudio.play()
     }
 }

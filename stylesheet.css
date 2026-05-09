@@ -132,7 +132,26 @@ img {
     position: absolute;
 }
 .upgradeGrid {
+    margin-top: 20vh;
+    position: absolute;
     justify-content: center;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 4fr);
+    height: 45vh;
+    width: 45vh;
+}
+
+.upgradez {
+    position: absolute;
+    color: white;
+    font-family: "Quicksand", sans-serif;
+    height: 50px;
+    width: 50px;
+    border: 4px solid white;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.upgradeimg {
+    height: 100%;
 }
