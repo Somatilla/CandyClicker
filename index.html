@@ -15,9 +15,20 @@
                     <h1>upgrades</h1>
 
                     <div class="upgradeGrid">
-                        <div id="hardworkingMouse" class="upgradez" onclick="buyHardworkingMouse()">
+                        <div id="hardworkingMouse" class="upgradez" onclick="buyHardworkingMouse()" onmouseenter="showHardworkingMouseText()" onmouseleave="hideHardworkingMouseText()">
                             <img src="assets/2xcursor.png" alt="" class="upgradeimg">
-                            <p style="margin: 0px; padding: 0px;">500<img src="assets/Candy.png" alt="" class="currency"></p>
+                            <p style="margin: 0px; padding: 0px;">500<img src="assets/Candy.png" alt="" class="currency"> <br>
+                            <div class="hardworkingMouseText" id="hardworkingMouseText">2xclicking<br>Power</div></p>
+                        </div>
+                        <div id="2xTrees" class="upgradez2" onclick="buy2xTrees()" onmouseenter="show2xTreesText()" onmouseleave="hide2xTreesText()">
+                            <img src="assets/2xtree.png" alt="" class="upgradeimg">
+                            <p style="margin: 0px; padding: 0px;">999<img src="assets/Candy.png" alt="" class="currency"> <br>
+                            <div class="TwoTreeText" id="TwoTreeText">2xTree-production</div></p>
+                        </div>
+                        <div id="2xFactory" class="upgradez3" onclick="buy2xFactory()" onmouseenter="show2xFactoryText()" onmouseleave="hide2xFactoryText()">
+                            <img src="assets/2xFactory.png" alt="" class="upgradeimg">
+                            <p style="margin: 0px; padding: 0px;">2000<img src="assets/Candy.png" alt="" class="currency"> <br>
+                            <div class="TwoFactoryText" id="TwoFactoryText">2xFactory-production</div></p>
                         </div>
                     </div>
 
@@ -25,7 +36,7 @@
                 </div>
             </div>
             <div class="left">
-                <h3>Candy: <br/><span class="candies">500</span><br/> CPS:<span class = "candypersecond">0</span></h3>
+                <h3>Candy: <br/><span class="candies">0</span></h3>
                 <img src="assets/Candy.png" alt = "" class="candyButton" draggable="false" width="500vh" height="500vh" onclick="incrementCandy()">
 
             </div>
@@ -68,15 +79,56 @@
                                 <img src="assets/Candy.png" alt="" class="currency">
                             </p>
                         </div>
+                        
                     </div>
                     <div class="right2">
                         level <span class ="CandyTreeLevel">0</span>
 
                     </div>
                 </div>
+                <div class="upgrade" onclick="buyFactory()">
+                    <div class="left2">
+                        <img src="assets/candyFactory.png" alt="" class="upgradeImg">
+                    </div>
+                    <div class="middle2">
+                        <h4>Factory</h4>
+                        <h4>*<span id="factoryIncrease">1.1</span> candy/s</h4>
+                        <div class="costInfo"></div>
+                        <div>
+                            <p>
+                                cost: <span id="factoryCost">300</span>
+                                <img src="assets/Candy.png" alt="" class="currency">
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="right2">
+                        level <span id="factoryLevel">0</span>
 
+                    </div>
+                </div>
+                <div class="upgrade" onclick="buyCandyCity()">
+                    <div class="left2">
+                        <img src="assets/candyCity.png" alt="" class="upgradeImg">
+                    </div>
+                    <div class="middle2">
+                        <h4>Candy City</h4>
+                        <h4>*<span id="cityIncrease">1.2</span> candy/s</h4>
+                        <div class="costInfo"></div>
+                        <div>
+                            <p>
+                                cost: <span id="cityCost">600</span>
+                                <img src="assets/Candy.png" alt="" class="currency">
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="right2">
+                        level <span id="cityLevel">0</span>
 
-            </div>
+                    </div>
+                </div>
+            </div> 
 
         </div>
     </section>
