@@ -125,7 +125,7 @@ function buyCandyCity() {
 
         cityCandyPerSecond += parsedFactoryIncrease
         parsedCityCost *= 1.2
-        parsedCityCost.innerHTML = (parsedCityCost).toFixed(2)
+        cityCost.innerHTML = (parsedCityCost).toFixed(2)
         buyUpgradeAudio.play()
     }
 }
