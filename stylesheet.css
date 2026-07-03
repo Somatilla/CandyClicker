@@ -20,6 +20,14 @@ img {
     image-rendering: crisp-edges;
     user-select: none;
 }
+
+.right {
+    max-height: 70vh;
+    width: 50vw;
+    padding-top: 20vh;
+    overflow-y: scroll;
+}
+
 .left h3 {
     text-align: center;
     font-size: 30px;
@@ -59,6 +67,29 @@ img {
     border-radius: 5px;
     position: absolute;
     margin-left: 12vw;
+}
+
+.upgradez4 {
+    color: white;
+    font-family: "Quicksand", sans-serif;
+    height: 55px;
+    width: 55px;
+    border: 4px solid white;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 18vw;
+}
+
+.upgradez5 {
+    color: white;
+    font-family: "Quicksand", sans-serif;
+    height: 55px;
+    width: 55px;
+    border: 4px solid white;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 0vw;
+    margin-top: 130px;
 }
 
 .upgrade {
@@ -155,6 +186,26 @@ img {
     pointer-events: auto
 }
 
+.TwoCityText {
+    opacity: 0;
+    pointer-events: relative
+}
+
+.TwoCityText.show {
+    opacity: 1;
+    pointer-events: auto
+}
+
+.TwoPlanetText {
+    opacity: 0;
+    pointer-events: relative
+}
+
+.TwoPlanetText.show {
+    opacity: 1;
+    pointer-events: auto
+}
+
 .upgradesButton {
     border-color: #2c2c2c;
     background-color: #2e2e2e;
@@ -205,4 +256,118 @@ img {
 
 .upgradeimg {
     height: 100%;
+}
+.fallOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.fall1 {
+    animation-name: fall;
+    animation-duration: 2s;
+    position: absolute;
+    animation-timing-function: linear;
+    pointer-events: none;
+}
+
+.clickOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.clickOverlay.show {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+@keyframes fall{
+    0% {
+        transform: translateY(-1vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(100deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.RNGCandy {
+  animation: spin 2s infinite;
+  scale:220%;
+  position: absolute;
+  
+}
+.RNGCandy:hover{
+    scale:240%;
+    opacity: 0.9;
+    cursor: pointer;
+}
+@keyframes candyRainTextAnim {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.CandyRainText {
+    animation: candyRainTextAnim 0.4s infinite;
+    color: yellow;
+    transform-origin: center;
+    position: absolute;
+}
+.BlueCandyH2 {
+    position: absolute;
+    color: aqua;
+    animation-name: blueCandyH2TextFadeOut;
+    animation-duration: 500ms;
+}
+@keyframes blueCandyH2TextFadeOut {
+    0% {
+        transform: translateY(20vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(10vh);
+        opacity: 0.3;
+    }
+}
+.purpleCandyH2 {
+    position: absolute;
+    color: purple;
+    animation-name: blueCandyH2TextFadeOut;
+    animation-duration: 500ms;
+}
+
+::-webkit-scrollbar {
+    width: 3vw;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
 }

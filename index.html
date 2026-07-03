@@ -27,8 +27,18 @@
                         </div>
                         <div id="2xFactory" class="upgradez3" onclick="buy2xFactory()" onmouseenter="show2xFactoryText()" onmouseleave="hide2xFactoryText()">
                             <img src="assets/2xFactory.png" alt="" class="upgradeimg">
-                            <p style="margin: 0px; padding: 0px;">2000<img src="assets/Candy.png" alt="" class="currency"> <br>
+                            <p style="margin: 0px; padding: 0px;">3k<img src="assets/Candy.png" alt="" class="currency"> <br>
                             <div class="TwoFactoryText" id="TwoFactoryText">2xFactory-production</div></p>
+                        </div>
+                        <div id="2xCity" class="upgradez4" onclick="buy2xCity()" onmouseenter="show2xCityText()" onmouseleave="hide2xCityText()">
+                            <img src="assets/candyCity2x.png" alt="" class="upgradeimg">
+                            <p style="margin: 0px; padding: 0px;">7k<img src="assets/Candy.png" alt="" class="currency"> <br>
+                            <div class="TwoCityText" id="TwoCityText">2xCity-production</div></p>
+                        </div>
+                        <div id="2xPlanet" class="upgradez5" onclick="buy2xPlanet()" onmouseenter="show2xPlanetText()" onmouseleave="hide2xPlanetText()">
+                            <img src="assets/2xCandyPlanet.png" alt="" class="upgradeimg">
+                            <p style="margin: 0px; padding: 0px;">15k<img src="assets/Candy.png" alt="" class="currency"> <br>
+                            <div class="TwoPlanetText" id="TwoPlanetText">2xPlanet-production</div></p>
                         </div>
                     </div>
 
@@ -71,7 +81,7 @@
                     </div>
                     <div class="middle2">
                         <h4>CandyTree</h4>
-                        <h4>*<span class="CandyTreeIncrease">1</span> candy/s</h4>
+                        <h4>*<span class="CandyTreeIncrease"></span> candy/s</h4>
                         <div class="costInfo"></div>
                         <div>
                             <p>
@@ -113,11 +123,11 @@
                     </div>
                     <div class="middle2">
                         <h4>Candy City</h4>
-                        <h4>*<span id="cityIncrease">1.2</span> candy/s</h4>
+                        <h4>*<span id="cityIncrease">1.25</span> candy/s</h4>
                         <div class="costInfo"></div>
                         <div>
                             <p>
-                                cost: <span id="cityCost">600</span>
+                                cost: <span id="cityCost">700</span>
                                 <img src="assets/Candy.png" alt="" class="currency">
                             </p>
                         </div>
@@ -128,9 +138,57 @@
 
                     </div>
                 </div>
-            </div> 
+                <div class="upgrade" onclick="buyCandyPlanet()">
+                    <div class="left2">
+                        <img src="assets/candyPlanet.png" alt="" class="upgradeImg">
+                    </div>
+                    <div class="middle2">
+                        <h4>Candy Planet</h4>
+                        <h4>*<span id="planetIncrease">1.4</span> candy/s</h4>
+                        <div class="costInfo"></div>
+                        <div>
+                            <p>
+                                cost: <span id="planetCost">1000</span>
+                                <img src="assets/Candy.png" alt="" class="currency">
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="right2">
+                        level <span id="planetLevel">0</span>
+
+                    </div>
+                </div>
+                <div class="upgrade" onclick="buyCandyGalaxy()">
+                    <div class="left2">
+                        <img src="assets/candyGalaxy.png" alt="" class="upgradeImg">
+                    </div>
+                    <div class="middle2">
+                        <h4>Candy Galaxy</h4>
+                        <h4>*<span id="galaxyIncrease">1.7</span> candy/s</h4>
+                        <div class="costInfo"></div>
+                        <div>
+                            <p>
+                                cost: <span id="galaxyCost">3000</span>
+                                <img src="assets/Candy.png" alt="" class="currency">
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="right2">
+                        level <span id="galaxyLevel">0</span>
+
+                    </div>
+                </div>
+            
+            </div>
+            <div id="fallOverlay" class="fallOverlay"></div>
+            <div id="clickOverlay" class="clickOverlay">
+                
+            </div>
 
         </div>
+
     </section>
     <audio id="candyClickAudio">
         <source src="assets/candyClick.ogg" type="audio/ogg">
@@ -138,6 +196,8 @@
     <audio id="buyUpgradeAudio">
         <source src="assets/BuyUpgrade.ogg" type="audio/ogg">
     </audio>
-    <script src = "index.js"></script>
+    <script src="formatter.js"></script>
+    <script src="gameLogic.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
