@@ -447,7 +447,7 @@ const saveCandyToLocalStorage = () => {
     localStorage.setItem("Candies", candyAmount)
 }
 function getCandy() {
-    candies = localStorage.getItem("Candies") || 500
+    candies = localStorage.getItem("Candies") || 0
     candies = parseFloat(candies)
     return candies
     console.log("gotcandy:"+  candies )
