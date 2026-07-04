@@ -431,14 +431,14 @@ setInterval(() => {
     candyAmount += (planetCandyPerSecond * planetEfficiency) /4
     candy.innerHTML = format(candyAmount)
     document.title = format(candyAmount) + " Candy Clicker"
-    //saveCandyToLocalStorage()
-    //saveFactoryToLocalStorage()
-    //saveTreesToLocalStorage()
-    //saveClickerToLocalStorage()
-    //saveCityToLocalStorage()
-    //savePlanetToLocalStorage()
-    //saveGalaxyToLocalStorage()
-    //saveDOGEToLocalStorage()
+    saveCandyToLocalStorage()
+    saveFactoryToLocalStorage()
+    saveTreesToLocalStorage()
+    saveClickerToLocalStorage()
+    saveCityToLocalStorage()
+    savePlanetToLocalStorage()
+    saveGalaxyToLocalStorage()
+    saveDOGEToLocalStorage()
 }, 250)
 
 //Local save
