@@ -47,6 +47,9 @@ img {
     width: 55px;
 
 }
+.upgradeImg:hover {
+    width: 65px;
+}
 .upgradez2 {
     color: white;
     font-family: "Quicksand", sans-serif;

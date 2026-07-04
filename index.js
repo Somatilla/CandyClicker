@@ -64,15 +64,28 @@ let has2xPlanet = localStorage.getItem("has2xPlanet")
 
 //candyGalaxy
 let galaxyCost = document.getElementById("galaxyCost")
-let actualGalaxyCost = planetCost.innerHTML
+let actualGalaxyCost = galaxyCost.innerHTML
 let parsedGalaxyCost = parseFloat(actualGalaxyCost)
 let galaxyLevel = document.getElementById("galaxyLevel")
 let actualGalaxyLevel = galaxyLevel.innerHTML
 let galaxyIncrease = document.getElementById("galaxyIncrease")
 let actualGalaxyIncrease = galaxyIncrease.innerHTML
-let parsedGalaxytIncrease = parseFloat(actualGalaxyIncrease)
+let parsedGalaxyIncrease = parseFloat(actualGalaxyIncrease)
 let galaxyCandyPerSecond = 0
 let galaxyEfficiency = 1
+
+//DOGECoin
+let DOGECost = document.getElementById("DOGECost")
+let actualDOGECost = DOGECost.innerHTML
+let parsedDOGECost = parseFloat(actualDOGECost)
+let DOGELevel = document.getElementById("DOGELevel")
+let actualDOGELevel = DOGELevel.innerHTML
+let DOGEIncrease = document.getElementById("DOGEIncrease")
+let actualDOGEIncrease = DOGEIncrease.innerHTML
+let parsedDOGEIncrease = parseFloat(actualDOGEIncrease)
+let DOGECandyPerSecond = 0
+let DOGEEfficiency = 1
+
 //let has2xGalaxy = localStorage.getItem("has2xPlanet")
 
 candyTreeUpgradeText.classList.add("show")
@@ -115,7 +128,7 @@ function buyClicker() {
         clickerLevel.innerHTML++
 
         parsedClickerIncrease = parseFloat((parsedClickerIncrease * 1.03).toFixed(2))
-        clickerIncrease.innerHTML = format(parsedClickerIncrease)
+        clickerIncrease.innerHTML = parsedClickerIncrease
 
         candyPerClick += parsedClickerIncrease
         parsedClickerCost *= 1.2
@@ -126,7 +139,7 @@ function buyClicker() {
 
 // ── TREE load ─────────────────────────────────────────────────────
 let CandyTreeLocalStorage = getTreesFromLocalStorage()
-let candyPerSecond = parseFloat(CandyTreeLocalStorage["CandyPerSecond"]) || 1.03
+let candyPerSecond = parseFloat(CandyTreeLocalStorage["CandyPerSecond"]) || 0
 let parsedCandyTreeCost = parseFloat(CandyTreeLocalStorage["CandyTreeCost"]) || 100
 let parsedCandyTreeIncrease = parseFloat(CandyTreeLocalStorage["CandyTreeIncrease"]) || 1
 let actualCandyTreeCost = CandyTreeCost.innerHTML
@@ -172,7 +185,7 @@ function buyFactory() {
 
         //stuff that is very important
         parsedFactoryIncrease = parseFloat((parsedFactoryIncrease * 1.08).toFixed(2))
-        factoryIncrease.innerHTML = format(parsedFactoryIncrease)
+        factoryIncrease.innerHTML = parsedFactoryIncrease
         factoryCandyPerSecond += parsedFactoryIncrease
 
         //cost
@@ -201,7 +214,7 @@ function buyCandyCity() {
         cityLevel.innerHTML++
 
         parsedCityIncrease = parseFloat((parsedCityIncrease * 1.2).toFixed(2))
-        cityIncrease.innerHTML = format(parsedCityIncrease)
+        cityIncrease.innerHTML = parsedCityIncrease
 
         cityCandyPerSecond += parsedCityIncrease
         parsedCityCost *= 1.2
@@ -229,7 +242,7 @@ function buyCandyPlanet() {
         planetLevel.innerHTML++
 
         parsedPlanetIncrease = parseFloat((parsedPlanetIncrease * 1.35).toFixed(2))
-        planetIncrease.innerHTML = format(parsedPlanetIncrease)
+        planetIncrease.innerHTML = parsedPlanetIncrease
 
         planetCandyPerSecond += parsedPlanetIncrease
         parsedPlanetCost *= 1.3
@@ -241,12 +254,12 @@ function buyCandyPlanet() {
 // GALAXY LOAD
 let galaxyLocalStorage = getGalaxyFromLocalStorage()
 parsedGalaxyCost     = parseFloat(galaxyLocalStorage["galaxyCost"])     || 10000
-parsedGalaxytIncrease = parseFloat(galaxyLocalStorage["galaxyIncrease"]) || 1
+parsedGalaxyIncrease = parseFloat(galaxyLocalStorage["galaxyIncrease"]) || 1
 galaxyCandyPerSecond = parseFloat(galaxyLocalStorage["galaxyCandyPerSecond"]) || 0
 
 galaxyLevel.innerHTML    = parseFloat(galaxyLocalStorage[galaxyLevel]) || 0
 galaxyCost.innerHTML     = format(parsedGalaxyCost)
-galaxyIncrease.innerHTML = parsedGalaxytIncrease
+galaxyIncrease.innerHTML = parsedGalaxyIncrease
 
 function buyCandyGalaxy() {
 
@@ -256,12 +269,39 @@ function buyCandyGalaxy() {
 
         galaxyLevel.innerHTML++
 
-        parsedGalaxytIncrease = parseFloat((parsedGalaxytIncrease * 1.35).toFixed(2))
-        galaxyIncrease.innerHTML = format(parsedGalaxytIncrease)
+        parsedGalaxyIncrease = parseFloat((parsedGalaxyIncrease * 2).toFixed(2))
+        galaxyIncrease.innerHTML = format(parsedGalaxyIncrease)
 
-        galaxyCandyPerSecond += parsedGalaxytIncrease
+        galaxyCandyPerSecond += parsedGalaxyIncrease
         parsedGalaxyCost *= 1.3
-        galaxyCost.innerHTML = format(parsedGalaxyCost)
+        galaxyCost.innerHTML = parsedGalaxyCost
+        buyUpgradeAudio.play()
+    }
+}
+
+// DOGE LOAD
+let DOGELocalStorage = getDOGEFromLocalStorage()
+parsedDOGECost     = parseFloat(DOGELocalStorage["DOGECost"])     || 15000
+parsedDOGEIncrease = parseFloat(DOGELocalStorage["DOGEIncrease"]) || 1
+DOGECandyPerSecond = parseFloat(DOGELocalStorage["DOGECandyPerSecond"]) || 0
+
+DOGELevel.innerHTML    = parseFloat(DOGELocalStorage["DOGELevel"]) || 0
+DOGECost.innerHTML     = format(parsedDOGECost)
+DOGEIncrease.innerHTML = parsedDOGEIncrease
+
+function buyDOGEcoin() {
+    if (candyAmount >= parsedDOGECost) {
+        candyAmount -= parsedDOGECost
+        candy.innerHTML = format(candyAmount)
+
+        DOGELevel.innerHTML++
+
+        parsedDOGEIncrease = parseFloat((parsedDOGEIncrease * 2.3).toFixed(2))
+        DOGEIncrease.innerHTML = parsedDOGEIncrease
+
+        DOGECandyPerSecond += parsedDOGEIncrease
+        parsedDOGECost *= 1.3
+        DOGECost.innerHTML = format(parsedDOGECost)
         buyUpgradeAudio.play()
     }
 }
@@ -391,13 +431,14 @@ setInterval(() => {
     candyAmount += (planetCandyPerSecond * planetEfficiency) /4
     candy.innerHTML = format(candyAmount)
     document.title = format(candyAmount) + " Candy Clicker"
-    saveCandyToLocalStorage()
-    saveFactoryToLocalStorage()
-    saveTreesToLocalStorage()
-    saveClickerToLocalStorage()
-    saveCityToLocalStorage()
-    savePlanetToLocalStorage()
-    saveGalaxyToLocalStorage()
+    //saveCandyToLocalStorage()
+    //saveFactoryToLocalStorage()
+    //saveTreesToLocalStorage()
+    //saveClickerToLocalStorage()
+    //saveCityToLocalStorage()
+    //savePlanetToLocalStorage()
+    //saveGalaxyToLocalStorage()
+    //saveDOGEToLocalStorage()
 }, 250)
 
 //Local save
@@ -486,7 +527,7 @@ function getPlanetFromLocalStorage() {
 function saveGalaxyToLocalStorage() {
     localStorage.setItem("galaxyCandyPerSecond", galaxyCandyPerSecond)
     localStorage.setItem("galaxyCost",           parsedGalaxyCost)
-    localStorage.setItem("galaxyIncrease",       parsedGalaxytIncrease)
+    localStorage.setItem("galaxyIncrease",       parsedGalaxyIncrease)
     localStorage.setItem("galaxyLevel",          galaxyLevel.innerHTML)
 }
 function getGalaxyFromLocalStorage() {
@@ -497,6 +538,21 @@ function getGalaxyFromLocalStorage() {
         galaxyLevel:          localStorage.getItem("galaxyLevel")
     }
 }
+function saveDOGEToLocalStorage() {
+    localStorage.setItem("DOGECandyPerSecond", DOGECandyPerSecond)
+    localStorage.setItem("DOGECost",           parsedDOGECost)
+    localStorage.setItem("DOGEIncrease",       parsedDOGEIncrease)
+    localStorage.setItem("DOGELevel",          DOGELevel.innerHTML)
+}
+function getDOGEFromLocalStorage() {
+    return {
+        DOGECandyPerSecond: localStorage.getItem("DOGECandyPerSecond"),
+        DOGECost:           localStorage.getItem("DOGECost"),
+        DOGEIncrease:       localStorage.getItem("DOGEIncrease"),
+        DOGELevel:          localStorage.getItem("DOGELevel")
+    }
+}
+
 
 let plusCandies = 0
 function fall1Spawn(src) {
